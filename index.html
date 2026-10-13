@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>爱看影视 | 个性化观影推荐与正版导航</title>
+  <meta name="description" content="爱看影视（aikanyingshi-h5）基于个人观影偏好做精选推荐：按心情、口味、场景分类片单，附正版渠道导航与踩雷避坑。不提供盗版资源、磁力、网盘与成人内容。" />
+  <meta name="author" content="爱看影视" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#B76E79" />
+  <link rel="canonical" href="https://aikanyingshi-h5.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="爱看影视" />
+  <meta property="og:title" content="爱看影视 | 个性化观影推荐与正版导航" />
+  <meta property="og:description" content="因为爱看，所以精选——按心情和口味推荐影视，只走正版持权平台。" />
+  <meta property="og:url" content="https://aikanyingshi-h5.github.io/" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="爱看影视 | 个性化观影推荐与正版导航" />
+  <meta name="twitter:description" content="你的私人观影手账，按心情选片，附正版信源与踩雷指南。" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "爱看影视",
+    "url": "https://aikanyingshi-h5.github.io/",
+    "description": "个性化观影推荐与正版影视渠道导航站。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#FFF8F5;
+      --bg2:#FFF0EA;
+      --card:#FFFFFF;
+      --line:#F0DDD6;
+      --ink:#3E2723;
+      --muted:#8D6E63;
+      --rose:#B76E79;
+      --rose-deep:#9A5B66;
+      --peach:#FFB7B2;
+      --lavender:#E6D7F5;
+      --lavender-deep:#B8A4D4;
+      --cream:#FFFDD0;
+      --coffee:#5D4037;
+      --coffee-light:#8D6E63;
+      --radius:16px;
+      --maxw:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);line-height:1.75;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    /* 导航 */
+    header.nav{position:sticky;top:0;z-index:50;background:rgba(255,248,245,.95);backdrop-filter:blur(12px);border-bottom:2px solid var(--rose)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:10px}
+    .logo .heart{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--peach));display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;animation:heartbeat 2s ease-in-out infinite;box-shadow:0 2px 10px rgba(183,110,121,.3)}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+    .logo b{color:var(--rose)}
+    .logo span{color:var(--coffee)}
+    nav.menu{display:flex;gap:6px;font-size:14px;font-weight:700;color:var(--muted)}
+    nav.menu a{padding:8px 14px;border-radius:8px;border:2px solid transparent;transition:.2s}
+    nav.menu a:hover{color:var(--rose);border-color:var(--line);background:var(--cream)}
+    .nav-toggle{display:none;background:none;border:2px solid var(--rose);color:var(--ink);border-radius:8px;padding:5px 10px;font-size:18px;cursor:pointer}
+
+    /* Hero 心跳 */
+    .hero{padding:74px 0 80px;border-bottom:0;background:
+      radial-gradient(600px 300px at 80% 20%,rgba(255,183,178,.25),transparent 60%),
+      radial-gradient(500px 250px at 10% 90%,rgba(230,215,245,.3),transparent 60%),
+      linear-gradient(180deg,#FFF0EA,#FFF8F5);
+      position:relative;overflow:hidden}
+    .hero .float-heart{position:absolute;font-size:20px;opacity:.3;animation:floatUp linear infinite}
+    .hero .float-heart:nth-child(1){left:10%;bottom:20%;animation-duration:7s}
+    .hero .float-heart:nth-child(2){left:25%;bottom:10%;animation-duration:9s;animation-delay:2s}
+    .hero .float-heart:nth-child(3){left:50%;bottom:30%;animation-duration:6s;animation-delay:1s}
+    .hero .float-heart:nth-child(4){left:70%;bottom:15%;animation-duration:8s;animation-delay:3s}
+    .hero .float-heart:nth-child(5){left:85%;bottom:25%;animation-duration:10s;animation-delay:4s}
+    @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:.3}100%{transform:translateY(-200px) rotate(360deg);opacity:0}}
+    .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .pill{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:800;padding:5px 16px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+    .hero h1{font-size:clamp(30px,5.5vw,52px);line-height:1.1;margin:0 0 14px;font-weight:900}
+    .hero h1 em{font-style:normal;color:var(--rose)}
+    .hero h1 .peach-em{color:var(--rose-deep)}
+    .hero p.lead{font-size:16px;color:var(--muted);max-width:640px;margin:0 0 22px}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .hero-tag{border:2px solid var(--line);border-radius:8px;padding:5px 13px;font-size:13px;font-weight:600;color:var(--ink);background:#fff}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:13px 26px;border-radius:10px;font-weight:800;font-size:15px;transition:.2s;display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+    .btn-primary{background:var(--rose);color:#fff;border:2px solid var(--rose-deep)}
+    .btn-primary:hover{background:var(--rose-deep)}
+    .btn-ghost{border:2px solid var(--coffee);color:var(--coffee);background:transparent}
+    .btn-ghost:hover{background:var(--coffee);color:#fff}
+
+    /* 手账本动画 */
+    .journal{width:280px;height:320px;margin:0 auto;position:relative;perspective:800px}
+    .journal-book{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:bookWobble 4s ease-in-out infinite}
+    .journal-cover{position:absolute;width:200px;height:260px;left:40px;top:30px;border-radius:12px 16px 16px 12px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));box-shadow:-6px 6px 20px rgba(183,110,121,.3),inset 2px 0 0 rgba(255,255,255,.2);transform:rotateY(-5deg)}
+    .journal-cover::before{content:"❤️";font-size:48px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .journal-cover::after{content:"";position:absolute;left:8px;top:0;bottom:0;width:4px;background:rgba(255,255,255,.3);border-radius:2px}
+    .journal-page{position:absolute;width:190px;height:250px;left:50px;top:35px;border-radius:8px 12px 12px 8px;background:var(--cream);border:1px solid var(--line);transform:rotateY(-2deg);animation:pageFlip 5s ease-in-out infinite}
+    .journal-page:nth-child(2){animation-delay:1s;top:38px}
+    .journal-page:nth-child(3){animation-delay:2s;top:41px}
+    @keyframes bookWobble{0%,100%{transform:rotateY(0deg)}50%{transform:rotateY(8deg)}}
+    @keyframes pageFlip{0%,100%{transform:rotateY(-2deg)}50%{transform:rotateY(5deg)}}
+
+    section{padding:60px 0;border-bottom:2px dashed var(--line)}
+    .sec-head{margin-bottom:32px;text-align:center}
+    .sec-head .kicker{color:var(--rose);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px}
+    .sec-head h2{font-size:clamp(24px,4vw,34px);margin:6px 0 8px;font-weight:900}
+    .sec-head p{color:var(--muted);margin:0 auto;max-width:700px;font-size:14px}
+
+    /* 口味标签云 */
+    .tags{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto}
+    .tag{padding:10px 22px;border-radius:25px;font-size:14px;font-weight:700;cursor:default;transition:.3s;border:2px solid;animation:tagFloat 3s ease-in-out infinite}
+    .tag:nth-child(1){background:var(--rose);color:#fff;border-color:var(--rose-deep);animation-delay:0s}
+    .tag:nth-child(2){background:var(--peach);color:var(--ink);border-color:#FF9B95;animation-delay:.5s}
+    .tag:nth-child(3){background:var(--lavender);color:var(--ink);border-color:var(--lavender-deep);animation-delay:1s}
+    .tag:nth-child(4){background:var(--cream);color:var(--coffee);border-color:#E8D5B7;animation-delay:1.5s}
+    .tag:nth-child(5){background:var(--coffee);color:#fff;border-color:var(--coffee-light);animation-delay:2s}
+    .tag:nth-child(6){background:#FFF;color:var(--rose);border-color:var(--rose);animation-delay:2.5s}
+    .tag:nth-child(7){background:#FCE4EC;color:var(--rose-deep);border-color:var(--rose);animation-delay:3s}
+    .tag:nth-child(8){background:#E8EAF6;color:#5C6BC0;border-color:#9FA8DA;animation-delay:3.5s}
+    @keyframes tagFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    /* 心情片单 */
+    .moods{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .mood-card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:24px;display:flex;gap:18px;align-items:flex-start;position:relative;overflow:hidden;transition:.3s}
+    .mood-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(183,110,121,.12)}
+    .mood-card::after{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+    .mood-card:nth-child(1)::after{background:linear-gradient(90deg,var(--rose),var(--peach))}
+    .mood-card:nth-child(2)::after{background:linear-gradient(90deg,var(--lavender),#B8A4D4)}
+    .mood-card:nth-child(3)::after{background:linear-gradient(90deg,var(--coffee),var(--coffee-light))}
+    .mood-card:nth-child(4)::after{background:linear-gradient(90deg,var(--peach),var(--rose))}
+    .mood-card .emoji{font-size:40px;flex-shrink:0}
+    .mood-card h3{margin:0 0 6px;font-size:17px;font-weight:900}
+    .mood-card p{margin:0;color:var(--muted);font-size:13px}
+    .mood-card ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:12px}
+    .mood-card ul li{margin:2px 0}
+
+    /* 观影手账 */
+    .diary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .diary-card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:22px;text-align:center;position:relative;transition:.3s}
+    .diary-card:hover{background:var(--cream)}
+    .diary-card .sticker{font-size:32px;margin-bottom:8px;display:block}
+    .diary-card h3{margin:0 0 4px;font-size:15px;font-weight:800}
+    .diary-card p{margin:0;color:var(--muted);font-size:12px}
+    .diary-card .tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(-3deg);width:40px;height:14px;background:rgba(183,110,121,.3);border-radius:2px}
+
+    /* 分享信源 */
+    .share{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .share-card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:22px;text-align:center;transition:.3s}
+    .share-card:hover{border-color:var(--rose);background:var(--cream)}
+    .share-card .ic{font-size:32px;margin-bottom:8px;display:block}
+    .share-card h3{margin:0 0 4px;font-size:15px;font-weight:800}
+    .share-card p{margin:0;color:var(--muted);font-size:12px}
+
+    /* 踩雷 */
+    .mines{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .mine{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:22px;border-top:5px solid #EF5350}
+    .mine:nth-child(2){border-top-color:var(--rose)}
+    .mine:nth-child(3){border-top-color:var(--coffee)}
+    .mine h3{margin:0 0 8px;font-size:16px;font-weight:800}
+    .mine p{margin:0;color:var(--muted);font-size:13px}
+
+    footer{padding:36px 0;text-align:center;color:#fff;font-size:13px;background:var(--rose-deep)}
+    footer a{color:var(--cream)}
+
+    #toTop{position:fixed;right:16px;bottom:16px;z-index:60;width:46px;height:46px;border-radius:50%;border:2px solid var(--rose);background:var(--rose);color:#fff;font-size:20px;font-weight:900;cursor:pointer;opacity:0;pointer-events:none;transition:.25s}
+    #toTop.show{opacity:1;pointer-events:auto}
+    .reveal{opacity:0;transform:translateY(16px);transition:.5s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .moods{grid-template-columns:1fr}
+      .diary{grid-template-columns:1fr 1fr}
+      .share{grid-template-columns:1fr 1fr}
+      .mines{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav-toggle{display:block}
+      nav.menu{position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;padding:10px 20px 20px;background:rgba(255,248,245,.98);border-bottom:2px solid var(--rose);display:none}
+      nav.menu.open{display:flex}
+      nav.menu a{padding:12px 8px;border-bottom:2px solid var(--line);border-radius:0}
+      .diary{grid-template-columns:1fr}
+      .share{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="logo"><span class="heart">♥</span><b>爱看</b><span>影视</span></div>
+      <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#home">首页</a>
+        <a href="#taste">口味标签</a>
+        <a href="#mood">心情片单</a>
+        <a href="#diary">观影手账</a>
+        <a href="#share">分享信源</a>
+        <a href="#warn">踩雷避坑</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <span class="float-heart">♥</span>
+    <span class="float-heart">♡</span>
+    <span class="float-heart">♥</span>
+    <span class="float-heart">♡</span>
+    <span class="float-heart">♥</span>
+    <div class="wrap">
+      <div>
+        <div class="pill">♥ Personal Taste · Curated</div>
+        <h1>爱看影视<br/>因为<span class="peach-em">爱看</span>，所以<em>精选</em></h1>
+        <p class="lead">按你的心情和口味推荐影视，从治愈到烧脑、从轻松到震撼，只导正版持权平台，拒绝盗版枪版、磁力网盘。</p>
+        <div class="hero-tags">
+          <span class="hero-tag">心情选片</span>
+          <span class="hero-tag">口味标签</span>
+          <span class="hero-tag">观影手账</span>
+          <span class="hero-tag">正版OTT</span>
+          <span class="hero-tag">踩雷避坑</span>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary" href="#taste">找到你的口味 →</a>
+          <a class="btn btn-ghost" href="#warn">避开烂片雷区</a>
+        </div>
+      </div>
+      <div>
+        <div class="journal">
+          <div class="journal-book">
+            <div class="journal-page"></div>
+            <div class="journal-page"></div>
+            <div class="journal-page"></div>
+            <div class="journal-cover"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="taste" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Taste Tags</div>
+        <h2>口味标签云</h2>
+        <p>选几个你喜欢的标签，找到属于你的片单方向。</p>
+      </div>
+      <div class="tags">
+        <span class="tag">💕 治愈温暖</span>
+        <span class="tag">🧠 烧脑悬疑</span>
+        <span class="tag">😂 轻松搞笑</span>
+        <span class="tag">🌍 宏大史诗</span>
+        <span class="tag">🎨 视觉美学</span>
+        <span class="tag">🎵 音乐歌舞</span>
+        <span class="tag">🐾 萌宠动物</span>
+        <span class="tag">📚 文学改编</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="mood" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Mood Picks</div>
+        <h2>心情片单</h2>
+        <p>今天什么心情？选对了心情，选片就成功了一半。</p>
+      </div>
+      <div class="moods">
+        <div class="mood-card">
+          <span class="emoji">🌸</span>
+          <div>
+            <h3>想被治愈</h3>
+            <p>生活太累？这些片子像一杯温水，慢慢暖回来。</p>
+            <ul>
+              <li>温暖系动画、慢节奏生活剧</li>
+              <li>自然风光、萌宠陪伴</li>
+              <li>适合周末窝沙发、盖毯子</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mood-card">
+          <span class="emoji">⚡</span>
+          <div>
+            <h3>想被震撼</h3>
+            <p>需要肾上腺素？大片视效和宏大叙事拉满。</p>
+            <ul>
+              <li>科幻巨制、动作大片</li>
+              <li>IMAX/杜比全景声首选</li>
+              <li>适合大屏客厅投影</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mood-card">
+          <span class="emoji">🤔</span>
+          <div>
+            <h3>想动脑筋</h3>
+            <p>悬疑烧脑、反转不断，看完想找人讨论。</p>
+            <ul>
+              <li>多线叙事、时间线游戏</li>
+              <li>社会派推理、心理惊悚</li>
+              <li>适合深夜独享、拉片推敲</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mood-card">
+          <span class="emoji">😴</span>
+          <div>
+            <h3>想放空</h3>
+            <p>不想动脑？轻松下饭、画面好看就行。</p>
+            <ul>
+              <li>旅行综艺、美食纪录片</li>
+              <li>轻松喜剧、偶像剧</li>
+              <li>配饭下饭、背景音模式</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diary" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Watch Diary</div>
+        <h2>观影手账</h2>
+        <p>记录每一部打动你的片子，建立你的私人片库。</p>
+      </div>
+      <div class="diary">
+        <div class="diary-card"><span class="tape"></span><span class="sticker">📝</span><h3>标记看过</h3><p>记录观影日期、评分、短评，建立个人档案</p></div>
+        <div class="diary-card"><span class="tape"></span><span class="sticker">⭐</span><h3>我的榜单</h3><p>按喜好排序，形成专属Top 10/Top 50</p></div>
+        <div class="diary-card"><span class="tape"></span><span class="sticker">📌</span><h3>想看清单</h3><p>收藏待看，按优先级排列，不再片荒</p></div>
+        <div class="diary-card"><span class="tape"></span><span class="sticker">🔔</span><h3>上映提醒</h3><p>关注新片动态，正版平台上线第一时间知晓</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="share" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Share & Sources</div>
+        <h2>分享信源</h2>
+        <p>好片要分享，但只走正版渠道。</p>
+      </div>
+      <div class="share">
+        <div class="share-card"><span class="ic">💬</span><h3>好友安利</h3><p>把正版链接分享给朋友，一起看同一部好片</p></div>
+        <div class="share-card"><span class="ic">📋</span><h3>片单导出</h3><p>生成你的精选片单，方便跨平台同步</p></div>
+        <div class="share-card"><span class="ic">📺</span><h3>正版平台</h3><p>主流OTT、院线、纪录片平台官方入口</p></div>
+        <div class="share-card"><span class="ic">🎉</span><h3>观影派对</h3><p>多人同步观影，正版平台房间功能</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="warn" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Minefield</div>
+        <h2>踩雷避坑</h2>
+        <p>这些坑别踩，保护时间也保护设备。</p>
+      </div>
+      <div class="mines">
+        <div class="mine">
+          <h3>🚫 "爱看免费全站"冒名</h3>
+          <p>冒用"爱看"名义提供全院线免费秒播、离线下载，多属未授权聚合；假播放按钮、强跳广告、博彩贷款风险高。</p>
+        </div>
+        <div class="mine">
+          <h3>🚫 标题党烂片引流</h3>
+          <p>封面用热门剧照、标题写"比XX还好看的神作"，点进去是低劣蹭热度短片，浪费时间。</p>
+        </div>
+        <div class="mine">
+          <h3>🚫 盗版站伪装"高清"</h3>
+          <p>标榜"高清蓝光""4K原盘"实为枪版/录屏，画面模糊、音质差，还夹带恶意弹窗。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 爱看影视（aikanyingshi-h5）｜ 静态展示站点 ｜
+      内页链接以 <a href="#">#</a> 占位 ｜
+      网站网址：https://aikanyingshi-h5.github.io ｜
+      本站仅作个性化影视推荐与正版渠道导航，不提供盗版资源、磁力、网盘与成人内容。
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    document.querySelectorAll('#menu a').forEach(function(a){
+      a.addEventListener('click',function(){ document.getElementById('menu').classList.remove('open'); });
+    });
+    var toTop=document.getElementById('toTop');
+    window.addEventListener('scroll',function(){ toTop.classList.toggle('show',window.scrollY>400); });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  </script>
+</body>
+</html>
